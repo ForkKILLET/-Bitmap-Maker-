@@ -510,7 +510,41 @@
 				Element("cover").style.display="none";
 				Element("dialog").style.display="none";
 			}
-			var BitmapValue={};
+			var BitmapValue=
+			{
+				"WADuck": {"value": [
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,1,0,0,0,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,1,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,0,1,0,0,0,0,0,0,0,1,0,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,0,1,0,0,0,0,0,0,0,1,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,0,1,1,0,1,1,1,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,0,0,1,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,0,0,1,0,1,0,1,1,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0],
+										[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1,0,0,0,1,0,0,0,0,0],
+										[0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,1,0,1,0,1,0,0,0,1,0,0,0,0,0],
+										[0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,1,0,1,0,1,1,0,0,0,1,0,0,0,0,0],
+										[0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1,0,1,0,1,0,0,0,0,1,0,0,0,0,0],
+										[0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,1,0,1,1,0,1,1,0,0,1,1,1,1,0,0],
+										[0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,1,0,0],
+										[0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0],
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0],
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,1,1,1,0,0,0,0,1,0,0,0],
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,0,0,0,1,0,0,0,0,0,0,0,0],
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+									], "height": 30, "width": 30, "bitsize": 1.5}
+			};
 			function PaintBitmap(id,name,if$key)
 			{
 				let $i=Element(id);
@@ -600,6 +634,8 @@
 											  <span class='Select' onclick='HideDialog();'><b class='Text'>OK</b></span>");
 					}
 				});
+	//Bitmaps:
+				PaintBitmap("K_Thanks","WADuck",1);
 			}
 			function CEB()
 			{
@@ -675,7 +711,7 @@
 		<div id='cover' class='Cover'></div>
 		<div id='dialog' class='Dialog'></div>
 		<div id='P_Head'>
-			<b class='SuperTitle'>【Bitmap Maker】 【Version】 0.0.0</b> <br>
+			<b class='SuperTitle'>【Bitmap Maker】 【Version】 0.0.1</b> <br>
 			<div class='Line'></div>
 		</div>
 		<div id='P_Body'>
@@ -698,10 +734,10 @@
 			<div class='Lines'></div>
 
 			<span class='Select' onclick='CEB()'><b class='Text'>Construct Empty Bitmap</b></span> <br>
+			<b class='Text'>【Click】 or 【Hover with pressing Ctrl key】 to color a 【bit】.</b> <br>
 			<span id='BM_C' style='display: none; color: green; background-color: white; padding: 7px; border: 2px solid green; border-radius: 10px; margin: 10px;'><table id='BM' cellspacing='0'></table></span>
 			<div class='Lines'></div>
 
-			<b class='Text'>【Click】 or 【Hover with pressing Ctrl key】 to color a 【bit】.</b>
 			<span class='Select' onclick='GC()' id='B_GC' style='display: none;'><b class='Text'>Generate Code</b></span>
 			<span id='K_Code' style='user-select: text; display: none; color: green; background-color: white; padding: 7px; border: 2px solid green; border-radius: 10px; margin: 10px; width: 100%'></span>
 			<div class='Lines'></div>
@@ -710,7 +746,9 @@
 		</div>
 		<div id='P_Foot'>
 			<div class='Line'></div>
-			<b class='Title'>【Fork Ψ Killet】 Last update on 【2019-04-20】</b>
+			<b class='Title'>【Fork Ψ Killet】 Last update on 【2019-04-20】</b> <br>
+			<span class='Key'><b class='Text'><a href='https://github.com/ForkFG/-Bitmap-Maker-/' target="_blank">Jump to 【Github】 repository</a></b></span>
+			<span class='Key' id='K_Thanks'><b class='Text'><a href='https://www.luogu.org/space/show?uid=93249' target="_blank">Special thanks to:</a></b></span>
 		</div>
 		<div id='P_VirtualKeyboard' style='position: fixed; bottom: 0; width: 100%; display: none;'>
 			<div class='Line'></div>
