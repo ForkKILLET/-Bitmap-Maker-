@@ -64,7 +64,7 @@
 				height: 280px;
 				bottom: 0;
 				left: 0;
-				opacity: 0.7;
+				opacity: 0.8;
 				background-color: black;
 				z-index: -1;
 			}
@@ -75,7 +75,7 @@
 				/* Theme Classic: */background-color: green;  
 				/* Theme New Year:  background: #ffc166;*/
 			}
-			.Radio
+			.Selectbox
 			{
 				position: absolute;
 				display: inline-block;
@@ -88,7 +88,7 @@
 				/* Theme New Year:  background: #ff2d2d;*/
 				margin: 7px 0;
 			}
-			.Radio>:first-child
+			.Selectbox>:first-child
 			{
 				width: 5px;
 				height: 5px;
@@ -119,9 +119,10 @@
 				height: 100%;
 				position: absolute;
 				top: 0;
+				bottom: 0;
 				left: 0;
 				z-index: 9999;
-				opacity: 0.7;
+				opacity: 0.8;
 				background-color: black;
 				display: none;
 			}
@@ -272,13 +273,16 @@
 				}
 				Element("focus").dataset.sel=id;
 			}
-			function ShowVirtualKeyboard()
+			function ShowVirtualKeyboard(kind)
 			{
 				ShowElement("P_VirtualKeyboard");
+				ShowElement("M_VirtualKeyboard_"+kind);
 			}
 			function HideVirtualKeyboard()
 			{
 				HideElement("P_VirtualKeyboard");
+				HideElement("M_VirtualKeyboard_Letters");
+				HideElement("M_VirtualKeyboard_Nums");
 			}
 			function EndInput()
 			{
@@ -286,33 +290,33 @@
 				if(if$mobile)
 				{
 					HideVirtualKeyboard();
-					HideElement("B_vk_q");ShowElement("B_vk_Q",1);
-					HideElement("B_vk_w");ShowElement("B_vk_W",1);
-					HideElement("B_vk_e");ShowElement("B_vk_E",1);
-					HideElement("B_vk_r");ShowElement("B_vk_R",1);
-					HideElement("B_vk_t");ShowElement("B_vk_T",1);
-					HideElement("B_vk_y");ShowElement("B_vk_Y",1);
-					HideElement("B_vk_u");ShowElement("B_vk_U",1);
-					HideElement("B_vk_i");ShowElement("B_vk_I",1);
-					HideElement("B_vk_o");ShowElement("B_vk_O",1);
-					HideElement("B_vk_p");ShowElement("B_vk_P",1);
-					HideElement("B_vk_a");ShowElement("B_vk_A",1);
-					HideElement("B_vk_s");ShowElement("B_vk_S",1);
-					HideElement("B_vk_d");ShowElement("B_vk_D",1);
-					HideElement("B_vk_f");ShowElement("B_vk_F",1);
-					HideElement("B_vk_g");ShowElement("B_vk_G",1);
-					HideElement("B_vk_h");ShowElement("B_vk_H",1);
-					HideElement("B_vk_j");ShowElement("B_vk_J",1);
-					HideElement("B_vk_k");ShowElement("B_vk_K",1);
-					HideElement("B_vk_l");ShowElement("B_vk_L",1);
-					HideElement("B_vk_z");ShowElement("B_vk_Z",1);
-					HideElement("B_vk_x");ShowElement("B_vk_X",1);
-					HideElement("B_vk_c");ShowElement("B_vk_C",1);
-					HideElement("B_vk_v");ShowElement("B_vk_V",1);
-					HideElement("B_vk_b");ShowElement("B_vk_B",1);
-					HideElement("B_vk_n");ShowElement("B_vk_N",1);
-					HideElement("B_vk_m");ShowElement("B_vk_M",1);
-					HideElement("B_vk_CL");ShowElement("B_vk_CU",1);
+					HideElement("B_VirtualKeyboardKey_Letters_q");ShowElement("B_VirtualKeyboardKey_Letters_Q",1);
+					HideElement("B_VirtualKeyboardKey_Letters_w");ShowElement("B_VirtualKeyboardKey_Letters_W",1);
+					HideElement("B_VirtualKeyboardKey_Letters_e");ShowElement("B_VirtualKeyboardKey_Letters_E",1);
+					HideElement("B_VirtualKeyboardKey_Letters_r");ShowElement("B_VirtualKeyboardKey_Letters_R",1);
+					HideElement("B_VirtualKeyboardKey_Letters_t");ShowElement("B_VirtualKeyboardKey_Letters_T",1);
+					HideElement("B_VirtualKeyboardKey_Letters_y");ShowElement("B_VirtualKeyboardKey_Letters_Y",1);
+					HideElement("B_VirtualKeyboardKey_Letters_u");ShowElement("B_VirtualKeyboardKey_Letters_U",1);
+					HideElement("B_VirtualKeyboardKey_Letters_i");ShowElement("B_VirtualKeyboardKey_Letters_I",1);
+					HideElement("B_VirtualKeyboardKey_Letters_o");ShowElement("B_VirtualKeyboardKey_Letters_O",1);
+					HideElement("B_VirtualKeyboardKey_Letters_p");ShowElement("B_VirtualKeyboardKey_Letters_P",1);
+					HideElement("B_VirtualKeyboardKey_Letters_a");ShowElement("B_VirtualKeyboardKey_Letters_A",1);
+					HideElement("B_VirtualKeyboardKey_Letters_s");ShowElement("B_VirtualKeyboardKey_Letters_S",1);
+					HideElement("B_VirtualKeyboardKey_Letters_d");ShowElement("B_VirtualKeyboardKey_Letters_D",1);
+					HideElement("B_VirtualKeyboardKey_Letters_f");ShowElement("B_VirtualKeyboardKey_Letters_F",1);
+					HideElement("B_VirtualKeyboardKey_Letters_g");ShowElement("B_VirtualKeyboardKey_Letters_G",1);
+					HideElement("B_VirtualKeyboardKey_Letters_h");ShowElement("B_VirtualKeyboardKey_Letters_H",1);
+					HideElement("B_VirtualKeyboardKey_Letters_j");ShowElement("B_VirtualKeyboardKey_Letters_J",1);
+					HideElement("B_VirtualKeyboardKey_Letters_k");ShowElement("B_VirtualKeyboardKey_Letters_K",1);
+					HideElement("B_VirtualKeyboardKey_Letters_l");ShowElement("B_VirtualKeyboardKey_Letters_L",1);
+					HideElement("B_VirtualKeyboardKey_Letters_z");ShowElement("B_VirtualKeyboardKey_Letters_Z",1);
+					HideElement("B_VirtualKeyboardKey_Letters_x");ShowElement("B_VirtualKeyboardKey_Letters_X",1);
+					HideElement("B_VirtualKeyboardKey_Letters_c");ShowElement("B_VirtualKeyboardKey_Letters_C",1);
+					HideElement("B_VirtualKeyboardKey_Letters_v");ShowElement("B_VirtualKeyboardKey_Letters_V",1);
+					HideElement("B_VirtualKeyboardKey_Letters_b");ShowElement("B_VirtualKeyboardKey_Letters_B",1);
+					HideElement("B_VirtualKeyboardKey_Letters_n");ShowElement("B_VirtualKeyboardKey_Letters_N",1);
+					HideElement("B_VirtualKeyboardKey_Letters_m");ShowElement("B_VirtualKeyboardKey_Letters_M",1);
+					HideElement("B_VirtualKeyboardKey_Letters_CL");ShowElement("B_VirtualKeyboardKey_Letters_CU",1);
 				}
 				else
 				{
@@ -331,63 +335,63 @@
 					let char=event;
 					if(char=='CL')
 					{
-						HideElement("B_vk_q");ShowElement("B_vk_Q",1);
-						HideElement("B_vk_w");ShowElement("B_vk_W",1);
-						HideElement("B_vk_e");ShowElement("B_vk_E",1);
-						HideElement("B_vk_r");ShowElement("B_vk_R",1);
-						HideElement("B_vk_t");ShowElement("B_vk_T",1);
-						HideElement("B_vk_y");ShowElement("B_vk_Y",1);
-						HideElement("B_vk_u");ShowElement("B_vk_U",1);
-						HideElement("B_vk_i");ShowElement("B_vk_I",1);
-						HideElement("B_vk_o");ShowElement("B_vk_O",1);
-						HideElement("B_vk_p");ShowElement("B_vk_P",1);
-						HideElement("B_vk_a");ShowElement("B_vk_A",1);
-						HideElement("B_vk_s");ShowElement("B_vk_S",1);
-						HideElement("B_vk_d");ShowElement("B_vk_D",1);
-						HideElement("B_vk_f");ShowElement("B_vk_F",1);
-						HideElement("B_vk_g");ShowElement("B_vk_G",1);
-						HideElement("B_vk_h");ShowElement("B_vk_H",1);
-						HideElement("B_vk_j");ShowElement("B_vk_J",1);
-						HideElement("B_vk_k");ShowElement("B_vk_K",1);
-						HideElement("B_vk_l");ShowElement("B_vk_L",1);
-						HideElement("B_vk_z");ShowElement("B_vk_Z",1);
-						HideElement("B_vk_x");ShowElement("B_vk_X",1);
-						HideElement("B_vk_c");ShowElement("B_vk_C",1);
-						HideElement("B_vk_v");ShowElement("B_vk_V",1);
-						HideElement("B_vk_b");ShowElement("B_vk_B",1);
-						HideElement("B_vk_n");ShowElement("B_vk_N",1);
-						HideElement("B_vk_m");ShowElement("B_vk_M",1);
-						HideElement("B_vk_CL");ShowElement("B_vk_CU",1);
+						HideElement("B_VirtualKeyboardKey_Letters_q");ShowElement("B_VirtualKeyboardKey_Letters_Q",1);
+						HideElement("B_VirtualKeyboardKey_Letters_w");ShowElement("B_VirtualKeyboardKey_Letters_W",1);
+						HideElement("B_VirtualKeyboardKey_Letters_e");ShowElement("B_VirtualKeyboardKey_Letters_E",1);
+						HideElement("B_VirtualKeyboardKey_Letters_r");ShowElement("B_VirtualKeyboardKey_Letters_R",1);
+						HideElement("B_VirtualKeyboardKey_Letters_t");ShowElement("B_VirtualKeyboardKey_Letters_T",1);
+						HideElement("B_VirtualKeyboardKey_Letters_y");ShowElement("B_VirtualKeyboardKey_Letters_Y",1);
+						HideElement("B_VirtualKeyboardKey_Letters_u");ShowElement("B_VirtualKeyboardKey_Letters_U",1);
+						HideElement("B_VirtualKeyboardKey_Letters_i");ShowElement("B_VirtualKeyboardKey_Letters_I",1);
+						HideElement("B_VirtualKeyboardKey_Letters_o");ShowElement("B_VirtualKeyboardKey_Letters_O",1);
+						HideElement("B_VirtualKeyboardKey_Letters_p");ShowElement("B_VirtualKeyboardKey_Letters_P",1);
+						HideElement("B_VirtualKeyboardKey_Letters_a");ShowElement("B_VirtualKeyboardKey_Letters_A",1);
+						HideElement("B_VirtualKeyboardKey_Letters_s");ShowElement("B_VirtualKeyboardKey_Letters_S",1);
+						HideElement("B_VirtualKeyboardKey_Letters_d");ShowElement("B_VirtualKeyboardKey_Letters_D",1);
+						HideElement("B_VirtualKeyboardKey_Letters_f");ShowElement("B_VirtualKeyboardKey_Letters_F",1);
+						HideElement("B_VirtualKeyboardKey_Letters_g");ShowElement("B_VirtualKeyboardKey_Letters_G",1);
+						HideElement("B_VirtualKeyboardKey_Letters_h");ShowElement("B_VirtualKeyboardKey_Letters_H",1);
+						HideElement("B_VirtualKeyboardKey_Letters_j");ShowElement("B_VirtualKeyboardKey_Letters_J",1);
+						HideElement("B_VirtualKeyboardKey_Letters_k");ShowElement("B_VirtualKeyboardKey_Letters_K",1);
+						HideElement("B_VirtualKeyboardKey_Letters_l");ShowElement("B_VirtualKeyboardKey_Letters_L",1);
+						HideElement("B_VirtualKeyboardKey_Letters_z");ShowElement("B_VirtualKeyboardKey_Letters_Z",1);
+						HideElement("B_VirtualKeyboardKey_Letters_x");ShowElement("B_VirtualKeyboardKey_Letters_X",1);
+						HideElement("B_VirtualKeyboardKey_Letters_c");ShowElement("B_VirtualKeyboardKey_Letters_C",1);
+						HideElement("B_VirtualKeyboardKey_Letters_v");ShowElement("B_VirtualKeyboardKey_Letters_V",1);
+						HideElement("B_VirtualKeyboardKey_Letters_b");ShowElement("B_VirtualKeyboardKey_Letters_B",1);
+						HideElement("B_VirtualKeyboardKey_Letters_n");ShowElement("B_VirtualKeyboardKey_Letters_N",1);
+						HideElement("B_VirtualKeyboardKey_Letters_m");ShowElement("B_VirtualKeyboardKey_Letters_M",1);
+						HideElement("B_VirtualKeyboardKey_Letters_CL");ShowElement("B_VirtualKeyboardKey_Letters_CU",1);
 					}
 					else if(char=='CU')
 					{
-						HideElement("B_vk_Q");ShowElement("B_vk_q",1);
-						HideElement("B_vk_W");ShowElement("B_vk_w",1);
-						HideElement("B_vk_E");ShowElement("B_vk_e",1);
-						HideElement("B_vk_R");ShowElement("B_vk_r",1);
-						HideElement("B_vk_T");ShowElement("B_vk_t",1);
-						HideElement("B_vk_Y");ShowElement("B_vk_y",1);
-						HideElement("B_vk_U");ShowElement("B_vk_u",1);
-						HideElement("B_vk_I");ShowElement("B_vk_i",1);
-						HideElement("B_vk_O");ShowElement("B_vk_o",1);
-						HideElement("B_vk_P");ShowElement("B_vk_p",1);
-						HideElement("B_vk_A");ShowElement("B_vk_a",1);
-						HideElement("B_vk_S");ShowElement("B_vk_s",1);
-						HideElement("B_vk_D");ShowElement("B_vk_d",1);
-						HideElement("B_vk_F");ShowElement("B_vk_f",1);
-						HideElement("B_vk_G");ShowElement("B_vk_g",1);
-						HideElement("B_vk_H");ShowElement("B_vk_h",1);
-						HideElement("B_vk_J");ShowElement("B_vk_j",1);
-						HideElement("B_vk_K");ShowElement("B_vk_k",1);
-						HideElement("B_vk_L");ShowElement("B_vk_l",1);
-						HideElement("B_vk_Z");ShowElement("B_vk_z",1);
-						HideElement("B_vk_X");ShowElement("B_vk_x",1);
-						HideElement("B_vk_C");ShowElement("B_vk_c",1);
-						HideElement("B_vk_V");ShowElement("B_vk_v",1);
-						HideElement("B_vk_B");ShowElement("B_vk_b",1);
-						HideElement("B_vk_N");ShowElement("B_vk_n",1);
-						HideElement("B_vk_M");ShowElement("B_vk_m",1);
-						HideElement("B_vk_CU");ShowElement("B_vk_CL",1);
+						HideElement("B_VirtualKeyboardKey_Letters_Q");ShowElement("B_VirtualKeyboardKey_Letters_q",1);
+						HideElement("B_VirtualKeyboardKey_Letters_W");ShowElement("B_VirtualKeyboardKey_Letters_w",1);
+						HideElement("B_VirtualKeyboardKey_Letters_E");ShowElement("B_VirtualKeyboardKey_Letters_e",1);
+						HideElement("B_VirtualKeyboardKey_Letters_R");ShowElement("B_VirtualKeyboardKey_Letters_r",1);
+						HideElement("B_VirtualKeyboardKey_Letters_T");ShowElement("B_VirtualKeyboardKey_Letters_t",1);
+						HideElement("B_VirtualKeyboardKey_Letters_Y");ShowElement("B_VirtualKeyboardKey_Letters_y",1);
+						HideElement("B_VirtualKeyboardKey_Letters_U");ShowElement("B_VirtualKeyboardKey_Letters_u",1);
+						HideElement("B_VirtualKeyboardKey_Letters_I");ShowElement("B_VirtualKeyboardKey_Letters_i",1);
+						HideElement("B_VirtualKeyboardKey_Letters_O");ShowElement("B_VirtualKeyboardKey_Letters_o",1);
+						HideElement("B_VirtualKeyboardKey_Letters_P");ShowElement("B_VirtualKeyboardKey_Letters_p",1);
+						HideElement("B_VirtualKeyboardKey_Letters_A");ShowElement("B_VirtualKeyboardKey_Letters_a",1);
+						HideElement("B_VirtualKeyboardKey_Letters_S");ShowElement("B_VirtualKeyboardKey_Letters_s",1);
+						HideElement("B_VirtualKeyboardKey_Letters_D");ShowElement("B_VirtualKeyboardKey_Letters_d",1);
+						HideElement("B_VirtualKeyboardKey_Letters_F");ShowElement("B_VirtualKeyboardKey_Letters_f",1);
+						HideElement("B_VirtualKeyboardKey_Letters_G");ShowElement("B_VirtualKeyboardKey_Letters_g",1);
+						HideElement("B_VirtualKeyboardKey_Letters_H");ShowElement("B_VirtualKeyboardKey_Letters_h",1);
+						HideElement("B_VirtualKeyboardKey_Letters_J");ShowElement("B_VirtualKeyboardKey_Letters_j",1);
+						HideElement("B_VirtualKeyboardKey_Letters_K");ShowElement("B_VirtualKeyboardKey_Letters_k",1);
+						HideElement("B_VirtualKeyboardKey_Letters_L");ShowElement("B_VirtualKeyboardKey_Letters_l",1);
+						HideElement("B_VirtualKeyboardKey_Letters_Z");ShowElement("B_VirtualKeyboardKey_Letters_z",1);
+						HideElement("B_VirtualKeyboardKey_Letters_X");ShowElement("B_VirtualKeyboardKey_Letters_x",1);
+						HideElement("B_VirtualKeyboardKey_Letters_C");ShowElement("B_VirtualKeyboardKey_Letters_c",1);
+						HideElement("B_VirtualKeyboardKey_Letters_V");ShowElement("B_VirtualKeyboardKey_Letters_v",1);
+						HideElement("B_VirtualKeyboardKey_Letters_B");ShowElement("B_VirtualKeyboardKey_Letters_b",1);
+						HideElement("B_VirtualKeyboardKey_Letters_N");ShowElement("B_VirtualKeyboardKey_Letters_n",1);
+						HideElement("B_VirtualKeyboardKey_Letters_M");ShowElement("B_VirtualKeyboardKey_Letters_m",1);
+						HideElement("B_VirtualKeyboardKey_Letters_CU");ShowElement("B_VirtualKeyboardKey_Letters_CL",1);
 					}
 					else if(char=="DL"&&len>0)
 					{
@@ -401,7 +405,7 @@
 					}
 					else if(char=="UL")char="_";
 					else if(char=="OK")EndInput();
-					if((char.length==1)&&((char>='A'&&char<='Z')||(char>='a'&&char<='z')||(char=="_"))&&(len<len_))
+					else if(char.length==1&&(char>="a"&&char<="z"||char>="A"&&char<="Z"||char=="_"||char>="0"&&char<="9")&&len<len_)
 					{
 						if(len++==0)$form.dataset.value=char;
 						else $form.dataset.value+=char;
@@ -424,7 +428,7 @@
 					}
 					else if(event.key.length==1&&(event.key>="a"&&event.key<="z"||event.key>="A"&&event.key<="Z"||event.key=="_"||event.key>="0"&&event.key<="9")&&len<len_)
 					{
-						if($focus.dataset.numOnly=="true"&&(event.key<"0"||event.key>"9"))return;
+						if($focus.dataset.kind=="Nums"&&(event.key<"0"||event.key>"9"))return;
 						if(len++==0)$form.dataset.value=event.key;
 						else $form.dataset.value+=event.key;
 						$focus.innerHTML="<b class='Text'>"+$form.dataset.value+"</b>";
@@ -434,22 +438,20 @@
 			}
 			function StartInput()
 			{
-				Element(GetFocus()).style.boxShadow="0 0 10px green";
-				if(if$mobile)
-				{
-					ShowVirtualKeyboard();
-				}
+				$input=Element(GetFocus());
+				$input.style.boxShadow="0 0 10px green";
+				if(if$mobile)ShowVirtualKeyboard($input.dataset.kind);
 				else document.body.onkeydown=NowInput;
 			}
 			function FormInput(form)
 			{
 				Element(form).dataset.value="/";
 			}
-			function AddInput(form,id,len_,if$numOnly)
+			function AddInput(form,id,len_,kind="Letters")
 			{
 				let $input=Element(id);
 				$input.dataset.form=form;
-				if(if$numOnly)$input.dataset.numOnly=true;
+				$input.dataset.kind=kind;
 				let $form=Element($input.dataset.form);
 				$form.dataset.len_=len_;
 				$form.dataset.len=0;
@@ -472,15 +474,15 @@
 					EndInput();
 				}
 			}
-			function FormRadio(form)
+			function FormSelectbox(form)
 			{
 				Element(form).dataset.sel="/";
 			}
-			function AddRadio(form,id)
+			function AddSelectbox(form,id)
 			{
-				let $Radio=Element(id);
-				$Radio.dataset.form=form;
-				$Radio.onclick=function()
+				let $Selectbox=Element(id);
+				$Selectbox.dataset.form=form;
+				$Selectbox.onclick=function()
 				{
 					let $form_=Element(this.dataset.form);
 					if($form_.dataset.sel!="/")Element($form_.dataset.sel).firstElementChild.style.display="none";
@@ -488,7 +490,7 @@
 					this.firstElementChild.style.display="block";
 				}
 			}
-			function SubmitRadio(form,id,f_Submit)
+			function SubmitSelectbox(form,id,f_Submit)
 			{
 				$input=Element(id);
 				$input.dataset.form=form;
@@ -499,20 +501,33 @@
 				}
 				Element(form).dataset.Submit=f_Submit;
 			}
-			function ShowDialog(html)
+			function ShowDialog(html,has$OKKey)
 			{
-				Element("cover").style.display="block";
-				Element("dialog").style.display="block";
-				Element("dialog").innerHTML=html;
+				let $cover=Element("cover"),$dialog=Element("dialog"),$html=document.documentElement,$body=document.body;
+				$html.style.overflow="hidden";
+				$html.style.height="100%";
+				$body.style.overflow="hidden";
+				$body.style.height="100%";
+				$cover.style.display="block";
+				$cover.style.height=($html.clientHeight>$html.scrollHeight?$html.clientHeight:$html.scrollHeight).toString()+"px";
+				$dialog.style.display="block";
+				$dialog.style.top=($html.scrollTop+30).toString()+"px";
+				if(has$OKKey)html+="<span class='Select' onclick='HideDialog();'><b class='Text'>OK</b></span>"
+				$dialog.innerHTML=html;
 			}
 			function HideDialog()
 			{
+				let $html=document.documentElement,$body=document.body;
+				$html.style.overflow="visible";
+				$html.style.height="auto";
+				$body.style.overflow="visible";
+				$body.style.height="auto";
 				Element("cover").style.display="none";
 				Element("dialog").style.display="none";
 			}
 			var BitmapValue=
 			{
-				"WADuck": {"value": [
+				"WADuck":{"value":  [
 										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -543,7 +558,24 @@
 										[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],
 										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-									], "height": 30, "width": 30, "bitsize": 1.5}
+									], "height": 30, "width": 30, "bitsize": 1.5},
+				"Kitty": {"value":  [
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+										[0,1,0,0,0,0,0,0,0,0,0,0,0,1,0],
+										[0,1,1,0,0,0,0,0,0,0,0,0,1,1,0],
+										[0,1,1,1,1,1,1,1,1,1,1,1,1,1,0],
+										[0,1,1,0,1,1,1,1,1,1,1,0,1,1,0],
+										[0,1,1,0,1,1,1,1,1,1,1,0,1,1,0],
+										[0,1,1,0,1,1,1,1,1,1,1,0,1,1,0],
+										[0,1,1,1,1,1,1,0,1,1,1,1,1,1,0],
+										[0,1,1,1,1,1,0,1,0,1,1,1,1,1,0],
+										[0,1,1,1,1,1,1,1,1,1,1,1,1,1,0],
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+									], "height": 15, "width": 15, "bitsize": 2}
 			};
 			function PaintBitmap(id,name,if$key)
 			{
@@ -552,35 +584,35 @@
 				{
 					let $j=NewElement("","span");
 					$j.className="Bitmap";
-					let s="",v=BitmapValue[name].value;
-					for(let i=0;i<BitmapValue[name].width;i++)
+					let s="",b=BitmapValue[name];
+					for(let i=0;i<b.width;i++)
 					{
-						for(let j=0;j<BitmapValue[name].height;j++)
+						for(let j=0;j<b.height;j++)
 						{
-							s+=((i+1)*BitmapValue[name].bitsize).toString()+"px "+((j+1)*BitmapValue[name].bitsize).toString()+"px "+(v[j][i]?/* Theme Classic: */"green"/* Theme New Year: "#ffc166"*/:"transparent")+(i==BitmapValue[name].width-1&&j==BitmapValue[name].height-1?"":", ");
+							s+=((i+1)*b.bitsize).toString()+"px "+((j+1)*b.bitsize).toString()+"px "+(b.value[j][i]?/* Theme Classic: */"green"/* Theme New Year: "#ffc166"*/:"transparent")+(i==b.width-1&&j==b.height-1?"":", ");
 						}
 					}
-					$j.style.width=(BitmapValue[name].bitsize).toString()+"px";
-					$j.style.height=(BitmapValue[name].bitsize).toString()+"px";
+					$j.style.width=(b.bitsize).toString()+"px";
+					$j.style.height=(b.bitsize).toString()+"px";
 					$j.style.boxShadow=s;
 					$j.style.display="inline-block";
 					$j.style.position="relative";
-					$j.style.top="-"+(3+BitmapValue[name].height*BitmapValue[name].bitsize/2).toString()+"px";
+					$j.style.top="-"+(3+b.height*b.bitsize/2).toString()+"px";
 					$i.appendChild($j);
 				}
 				else
 				{	
 					$i.className="Bitmap";
-					let s="",v=BitmapValue[name];
+					let s="",b=BitmapValue[name];
 					for(let i=0;i<BitmapValue[name].width;i++)
 					{
-						for(let j=0;j<BitmapValue[name].height;j++)
+						for(let j=0;j<b.height;j++)
 						{
-							s+=((i+1)*BitmapValue[name].bitsize).toString()+"px "+((j+1)*BitmapValue[name].bitsize).toString()+"px "+(v[j][i]?/* Theme Classic: */"green"/* Theme New Year: "#ffc166"*/:"transparent")+(i==BitmapValue[name].width-1&&j==BitmapValue[name].height-1?"":", ");
+							s+=((i+1)*b.bitsize).toString()+"px "+((j+1)*b.bitsize).toString()+"px "+(b.value[j][i]?/* Theme Classic: */"green"/* Theme New Year: "#ffc166"*/:"transparent")+(i==b.width-1&&j==b.height-1?"":", ");
 						}
 					}
-					$i.style.width=(BitmapValue[name].bitsize).toString()+"px";
-					$i.style.height=(BitmapValue[name].bitsize).toString()+"px";
+					$i.style.width=(b.bitsize).toString()+"px";
+					$i.style.height=(b.bitsize).toString()+"px";
 					$i.style.boxShadow=s;
 					$i.style.display="inline-block";
 					$i.style.position="relative";
@@ -588,12 +620,8 @@
 
 			}
 //KILLET:
-			var w=0,h=0,b=[],i,j,c;
-			for(i=0;i<99;i++)
-			{
-				b[i]=[];
-				for(j=0;j<99;j++)b[i][j]=0;
-			}
+			var w=0,h=0,b=[],i,j,c,brush=1;
+
 			function KILLET()
 			{
 	//Initialization:
@@ -601,44 +629,60 @@
 				else window.event.returnValue=false;
 				SetFocus("/");
 	//Forms:
+				FormSelectbox("SelectboxForm_Fit");
+				AddSelectbox("SelectboxForm_Fit","Selectbox_Fit_PC");
+				AddSelectbox("SelectboxForm_Fit","Selectbox_Fit_mobile");
+				SubmitSelectbox("SelectboxForm_Fit","SelectboxSubmit_Fit",
+				function Submit(sel)
+				{
+					if(sel=="/")ShowDialog("<b class='Title'>【Error】</b> <br> <b class='Text'>Please choose your device first.</b><br>",1);
+					else
+					{
+						HideElement("SelectboxForm_Fit");
+						if(sel.indexOf("mobile")!=-1)if$mobile=true,sel="mobile";
+						else sel="PC";
+						ShowDialog("<b class='Title'>【Information】</b> <br> <b class='Text'>The device 【"+sel+"】 is fitted. <br> You have to refresh the page if you want to fit it again.</b><br>",1);
+					}
+				});
+
 				FormInput("TF_Width");
-				AddInput("TF_Width","T_Width",2,true);
+				AddInput("TF_Width","T_Width",2,"Nums");
 				SubmitInput("TF_Width","TS_Width",
 				function Submit(value)
 				{
-					if(value=="/")ShowDialog("<b class='Title'>【Error】</b><b class='Text'>Please input the value first.</b><br>\
-											  <span class='Select' onclick='HideDialog();'><b class='Text'>OK</b></span>");
-					else if(parseInt(value)>30)ShowDialog("<b class='Title'>【Error】</b><b class='Text'>The width should &lt;= 30.</b><br>\
-											  <span class='Select' onclick='HideDialog();'><b class='Text'>OK</b></span>");
+					if(value=="/")ShowDialog("<b class='Title'>【Error】</b><b class='Text'>Please input the value first.</b><br>",1);
+					else if(parseInt(value)>30)ShowDialog("<b class='Title'>【Error】</b><b class='Text'>The width should &lt;= 30.</b><br>",1);
 					else
 					{
 						w=parseInt(value);
-						ShowDialog("<b class='Title'>【Infomation】</b><b class='Text'>The width is "+w+" now.</b><br>\
-											  <span class='Select' onclick='HideDialog();'><b class='Text'>OK</b></span>");
+						ShowDialog("<b class='Title'>【Information】</b><b class='Text'>The width is "+w+" now.</b><br>",1);
 					}
 				});
 
 				FormInput("TF_Height");
-				AddInput("TF_Height","T_Height",2,true);
+				AddInput("TF_Height","T_Height",2,"Nums");
 				SubmitInput("TF_Height","TS_Height",
 				function Submit(value)
 				{
-					if(value=="/")ShowDialog("<b class='Title'>【Error】</b><b class='Text'>Please input the value first.</b><br>\
-											  <span class='Select' onclick='HideDialog();'><b class='Text'>OK</b></span>");
-					else if(parseInt(value)>30)ShowDialog("<b class='Title'>【Error】</b><b class='Text'>The height should &lt;= 30.</b><br>\
-											  <span class='Select' onclick='HideDialog();'><b class='Text'>OK</b></span>");
+					if(value=="/")ShowDialog("<b class='Title'>【Error】</b><b class='Text'>Please input the value first.</b><br>",1);
+					else if(parseInt(value)>30)ShowDialog("<b class='Title'>【Error】</b><b class='Text'>The height should &lt;= 30.</b><br>",1);
 					else
 					{
 						h=parseInt(value);
-						ShowDialog("<b class='Title'>【Infomation】</b><b class='Text'>The height is "+h+" now.</b><br>\
-											  <span class='Select' onclick='HideDialog();'><b class='Text'>OK</b></span>");
+						ShowDialog("<b class='Title'>【Information】</b><b class='Text'>The height is "+h+" now.</b><br>",1);
 					}
 				});
 	//Bitmaps:
 				PaintBitmap("K_Thanks","WADuck",1);
+				PaintBitmap("K_logo","Kitty");
 			}
 			function CEB()
 			{
+				for(i=0;i<30;i++)
+				{
+					b[i]=[];
+					for(j=0;j<30;j++)b[i][j]=0;
+				}
 				if(w*h)
 				{
 					let $BM=Element("BM"),$i,$j;
@@ -658,7 +702,9 @@
 								let a=this.id.split("_");
 								ii=parseInt(a[1]);
 								jj=parseInt(a[2]);
-								b[ii][jj]=1-b[ii][jj]; this.style.backgroundColor=(b[ii][jj]==1?"green":"white");
+								if(brush==1)b[ii][jj]=1-b[ii][jj],this.style.backgroundColor=(b[ii][jj]==1?"green":"white");
+								else if(brush==2)b[ii][jj]=1,this.style.backgroundColor="green";
+								else if(brush==3)b[ii][jj]=0,this.style.backgroundColor="white";
 							};
 							$j.onmouseout=function(event)
 							{
@@ -667,7 +713,9 @@
 									let a=this.id.split("_");
 									ii=parseInt(a[1]);
 									jj=parseInt(a[2]);
-									b[ii][jj]=1-b[ii][jj]; this.style.backgroundColor=(b[ii][jj]==1?"green":"white");
+									if(brush==1)b[ii][jj]=1-b[ii][jj],this.style.backgroundColor=(b[ii][jj]==1?"green":"white");
+									else if(brush==2)b[ii][jj]=1,this.style.backgroundColor="green";
+									else if(brush==3)b[ii][jj]=0,this.style.backgroundColor="white";
 								}
 							};
 							$i.appendChild($j);
@@ -676,34 +724,41 @@
 					}
 					ShowElement("BM_C",1);
 					ShowElement("B_GC",1);
-					ShowDialog("<b class='Title'>【Infomation】</b><b class='Text'>Completed, the width is "+w+", the height is "+h+".</b><br>\
-												  <span class='Select' onclick='HideDialog();'><b class='Text'>OK</b></span>");
+					ShowDialog("<b class='Title'>【Information】</b><b class='Text'>Completed, the width is "+w+", the height is "+h+".</b><br>",1);
 				}
-				else ShowDialog("<b class='Title'>【Error】</b><b class='Text'>Please input & submit the correct width & height first.</b><br>\
-												  <span class='Select' onclick='HideDialog();'><b class='Text'>OK</b></span>");
+				else ShowDialog("<b class='Title'>【Error】</b><b class='Text'>Please input & submit the correct width & height first.</b><br>",1);
 			}
-		function GC()
-		{
-			c="{&quot;value&quot;: [<br>";
-			for(i=0;i<h;i++)
+			function CB()
 			{
-				c+="[";
-				for(j=0;j<w;j++)c+=(b[i][j]+(j==w-1?"]":","));
-				if(i!=h-1)c+=",<br>";
+				let brushname=["#","change","green","white"];
+				HideElement("K_Brush_"+brush);
+				if(++brush==4)brush=1;
+				ShowElement("K_Brush_"+brush);
+				ShowDialog("<b class='Title'>【Information】</b><b class='Text'>Completed, it's the 【"+brushname[brush]+"】 brush now.</b><br>",1);
 			}
-			c+=("<br>], &quot;height&quot;: "+h+", &quot;width&quot;: "+w+", &quot;bitsize&quot;: 1.5}");
-			Element("K_Code").innerHTML="<b>"+c+"</b>";
-			ShowElement("K_Code");
-			ShowElement("B_PB",1);
-		}
-		function PB()
-		{
-			c=c.replace(/&quot;/g,"\"");
-			c=c.replace(/\<br\>/g,"");
-			let o=eval("("+c+")");
-			BitmapValue={"PB": o};
-			PaintBitmap("B_PB","PB",true);
-		}
+			function GC()
+			{
+				c="{&quot;value&quot;: [<br>";
+				for(i=0;i<h;i++)
+				{
+					c+="[";
+					for(j=0;j<w;j++)c+=(b[i][j]+(j==w-1?"]":","));
+					if(i!=h-1)c+=",<br>";
+				}
+				c+=("<br>], &quot;height&quot;: "+h+", &quot;width&quot;: "+w+", &quot;bitsize&quot;: 1.5}");
+				Element("K_Code").innerHTML="<b>"+c+"</b>";
+				ShowElement("K_Code");
+				ShowElement("B_PB",1);
+			}
+			function PB()
+			{
+				Element("B_PB").innerHTML="<b class='Text'>Preview Bitmap</b>";
+				c=c.replace(/&quot;/g,"\"");
+				c=c.replace(/\<br\>/g,"");
+				let o=eval("("+c+")");
+				BitmapValue={"PB": o};
+				PaintBitmap("B_PB","PB",true);
+			}
 		</script>
 	</head>
 	<body onload="KILLET()">
@@ -711,7 +766,18 @@
 		<div id='cover' class='Cover'></div>
 		<div id='dialog' class='Dialog'></div>
 		<div id='P_Head'>
-			<b class='SuperTitle'>【Bitmap Maker】 【Version】 0.0.1</b> <br>
+			<b class='SuperTitle'>【Bitmap Maker】 【Version】 0.1.0</b>
+			<span id='K_logo'></span>
+			<b class='Text'>&nbsp;Hi~ I'm 【Kitty】, the logo of 【Bitmap Maker】.</b>
+			<div id='SelectboxForm_Fit'>
+				<div class='Lines'></div>
+				<b class='Text'>Choose the devide you are using now.</b> <br>
+				<span id='Selectbox_Fit_PC' class='Selectbox'><span style='display: none;'></span></span>
+				<b class='Text' style='margin-left: 20px;'>【PC】</b> <br>
+				<span id='Selectbox_Fit_mobile' class='Selectbox'><span style='display: none;'></span></span>
+				<b class='Text' style='margin-left: 20px;'>【Mobile】</b> <br>
+				<span id='SelectboxSubmit_Fit' class='Select'><b class='Text'>Fit your device</b></span>
+			</div>
 			<div class='Line'></div>
 		</div>
 		<div id='P_Body'>
@@ -719,22 +785,25 @@
 			<div id='cover' class='Cover'></div>
 			<div id='dialog' class='Dialog'></div>
 
-			<div id='TF_Width'>
-				<b class='Text'>Input the 【Width】:</b> <br>
-				<span id='T_Width' class='Input'><b class='Text'>&nbsp;</b></span>
-				<span id='TS_Width' class='Select'><b class='Text'>Submit</b></span>
+			<div style='display: block; height: 170px;'>
+				<div id='TF_Width' style='float: left;'>
+					<b class='Text'>Input the 【Width】:</b> <br>
+					<span id='T_Width' class='Input'><b class='Text'>&nbsp;</b></span>
+					<span id='TS_Width' class='Select'><b class='Text'>Submit</b></span>
+				</div>
+				<div id='TF_Height' style='float: left;'>
+					<b class='Text'>Input the 【Height】:</b> <br>
+					<span id='T_Height' class='Input'><b class='Text'>&nbsp;</b></span>
+					<span id='TS_Height' class='Select'><b class='Text'>Submit</b></span>
+				</div>
 			</div>
 			<div class='Lines'></div>
 
-			<div id='TF_Height'>
-				<b class='Text'>Input the 【Height】:</b> <br>
-				<span id='T_Height' class='Input'><b class='Text'>&nbsp;</b></span>
-				<span id='TS_Height' class='Select'><b class='Text'>Submit</b></span>
-			</div>
-			<div class='Lines'></div>
-
-			<span class='Select' onclick='CEB()'><b class='Text'>Construct Empty Bitmap</b></span> <br>
-			<b class='Text'>【Click】 or 【Hover with pressing Ctrl key】 to color a 【bit】.</b> <br>
+			<span class='Select' onclick='CEB()'><b class='Text'>Construct Empty Bitmap</b></span>
+			<span class='Select' onclick='CB()'><b class='Text'>Change Brush</b></span> <br>
+			<b class='Text' id='K_Brush_1'>The 【change】 brush:<br>【Click】 or 【Hover with pressing Ctrl key】 to 【change】 the color of a 【bit】.<br>That's to say, if a 【bit】 is 【green】 now, it'll be 【white】.<br>On the other hand, if it's 【white】 now, it'll be 【green】.</b>
+			<b class='Text' id='K_Brush_2' style='display: none;'>The 【green】 brush:<br>【Click】 or 【Hover with pressing Ctrl key】 to color a 【bit】 【green】.</b>
+			<b class='Text' id='K_Brush_3' style='display: none;'>The 【white】 brush:<br>【Click】 or 【Hover with pressing Ctrl key】 to color a 【bit】 【white】.</b> <br>
 			<span id='BM_C' style='display: none; color: green; background-color: white; padding: 7px; border: 2px solid green; border-radius: 10px; margin: 10px;'><table id='BM' cellspacing='0'></table></span>
 			<div class='Lines'></div>
 
@@ -746,74 +815,90 @@
 		</div>
 		<div id='P_Foot'>
 			<div class='Line'></div>
-			<b class='Title'>【Fork Ψ Killet】 Last update on 【2019-04-20】</b> <br>
+			<b class='Title'>【Fork Ψ Killet】 Last update on 【2019-04-21】</b> <br>
 			<span class='Key'><b class='Text'><a href='https://github.com/ForkFG/-Bitmap-Maker-/' target="_blank">Jump to 【Github】 repository</a></b></span>
 			<span class='Key' id='K_Thanks'><b class='Text'><a href='https://www.luogu.org/space/show?uid=93249' target="_blank">Special thanks to:</a></b></span>
 		</div>
 		<div id='P_VirtualKeyboard' style='position: fixed; bottom: 0; width: 100%; display: none;'>
 			<div class='Line'></div>
-				<div id='M_Letters' class='VirtualKeyboard'>
-					<b class='Title'>I'm a 【VirtualKeyboard】!</b>
+				<div id='M_VirtualKeyboard_Letters' class='VirtualKeyboard' style='display: none;'>
+					<b class='Title'>【VirtualKeyboard】 Letters.</b>
 					<div class='Lines'></div>
-					<span id='B_vk_Q' class='VirtualKeyboardKey' onclick='~function(){NowInput("Q");}()'><b class='Text'>Q</b></span>
-					<span id='B_vk_q' class='VirtualKeyboardKey' onclick='~function(){NowInput("q");}()' style='display: none;'><b class='Text'>q</b></span>
-					<span id='B_vk_W' class='VirtualKeyboardKey' onclick='~function(){NowInput("W");}()'><b class='Text'>W</b></span>
-					<span id='B_vk_w' class='VirtualKeyboardKey' onclick='~function(){NowInput("w");}()' style='display: none;'><b class='Text'>w</b></span>
-					<span id='B_vk_E' class='VirtualKeyboardKey' onclick='~function(){NowInput("E");}()'><b class='Text'>E</b></span>
-					<span id='B_vk_e' class='VirtualKeyboardKey' onclick='~function(){NowInput("e");}()' style='display: none;'><b class='Text'>e</b></span>
-					<span id='B_vk_R' class='VirtualKeyboardKey' onclick='~function(){NowInput("R");}()'><b class='Text'>R</b></span>
-					<span id='B_vk_r' class='VirtualKeyboardKey' onclick='~function(){NowInput("r");}()' style='display: none;'><b class='Text'>r</b></span>
-					<span id='B_vk_T' class='VirtualKeyboardKey' onclick='~function(){NowInput("T");}()'><b class='Text'>T</b></span>
-					<span id='B_vk_t' class='VirtualKeyboardKey' onclick='~function(){NowInput("t");}()' style='display: none;'><b class='Text'>t</b></span>
-					<span id='B_vk_Y' class='VirtualKeyboardKey' onclick='~function(){NowInput("Y");}()'><b class='Text'>Y</b></span>
-					<span id='B_vk_y' class='VirtualKeyboardKey' onclick='~function(){NowInput("y");}()' style='display: none;'><b class='Text'>y</b></span>
-					<span id='B_vk_U' class='VirtualKeyboardKey' onclick='~function(){NowInput("U");}()'><b class='Text'>U</b></span>
-					<span id='B_vk_u' class='VirtualKeyboardKey' onclick='~function(){NowInput("u");}()' style='display: none;'><b class='Text'>u</b></span>
-					<span id='B_vk_I' class='VirtualKeyboardKey' onclick='~function(){NowInput("I");}()'><b class='Text'>I</b></span>
-					<span id='B_vk_i' class='VirtualKeyboardKey' onclick='~function(){NowInput("i");}()' style='display: none;'><b class='Text'>i</b></span>
-					<span id='B_vk_O' class='VirtualKeyboardKey' onclick='~function(){NowInput("O");}()'><b class='Text'>O</b></span>
-					<span id='B_vk_o' class='VirtualKeyboardKey' onclick='~function(){NowInput("o");}()' style='display: none;'><b class='Text'>o</b></span>
-					<span id='B_vk_P' class='VirtualKeyboardKey' onclick='~function(){NowInput("P");}()'><b class='Text'>P</b></span>
-					<span id='B_vk_p' class='VirtualKeyboardKey' onclick='~function(){NowInput("p");}()' style='display: none;'><b class='Text'>p</b></span>
-					<span id='B_vk_DL' class='VirtualKeyboardKey' onclick='~function(){NowInput("DL");}()'><b class='Text'>×</b></span> <br>
-					<span id='B_vk_CL' class='VirtualKeyboardKey' onclick='~function(){NowInput("CL");}()' style='display: none;'><b class='Text'>▲</b></span>
-					<span id='B_vk_CU' class='VirtualKeyboardKey' onclick='~function(){NowInput("CU");}()'><b class='Text'>▼</b></span>
-					<span id='B_vk_A' class='VirtualKeyboardKey' onclick='~function(){NowInput("A");}()'><b class='Text'>A</b></span>
-					<span id='B_vk_a' class='VirtualKeyboardKey' onclick='~function(){NowInput("a");}()' style='display: none;'><b class='Text'>a</b></span>
-					<span id='B_vk_S' class='VirtualKeyboardKey' onclick='~function(){NowInput("S");}()'><b class='Text'>S</b></span>
-					<span id='B_vk_s' class='VirtualKeyboardKey' onclick='~function(){NowInput("s");}()' style='display: none;'><b class='Text'>s</b></span>
-					<span id='B_vk_D' class='VirtualKeyboardKey' onclick='~function(){NowInput("D");}()'><b class='Text'>D</b></span>
-					<span id='B_vk_d' class='VirtualKeyboardKey' onclick='~function(){NowInput("d");}()' style='display: none;'><b class='Text'>d</b></span>
-					<span id='B_vk_F' class='VirtualKeyboardKey' onclick='~function(){NowInput("F");}()'><b class='Text'>F</b></span>
-					<span id='B_vk_f' class='VirtualKeyboardKey' onclick='~function(){NowInput("f");}()' style='display: none;'><b class='Text'>f</b></span>
-					<span id='B_vk_G' class='VirtualKeyboardKey' onclick='~function(){NowInput("G");}()'><b class='Text'>G</b></span>
-					<span id='B_vk_g' class='VirtualKeyboardKey' onclick='~function(){NowInput("g");}()' style='display: none;'><b class='Text'>g</b></span>
-					<span id='B_vk_H' class='VirtualKeyboardKey' onclick='~function(){NowInput("H");}()'><b class='Text'>H</b></span>
-					<span id='B_vk_h' class='VirtualKeyboardKey' onclick='~function(){NowInput("h");}()' style='display: none;'><b class='Text'>h</b></span>
-					<span id='B_vk_J' class='VirtualKeyboardKey' onclick='~function(){NowInput("J");}()'><b class='Text'>J</b></span>
-					<span id='B_vk_j' class='VirtualKeyboardKey' onclick='~function(){NowInput("j");}()' style='display: none;'><b class='Text'>j</b></span>
-					<span id='B_vk_K' class='VirtualKeyboardKey' onclick='~function(){NowInput("K");}()'><b class='Text'>K</b></span>
-					<span id='B_vk_k' class='VirtualKeyboardKey' onclick='~function(){NowInput("k");}()' style='display: none;'><b class='Text'>k</b></span>
-					<span id='B_vk_L' class='VirtualKeyboardKey' onclick='~function(){NowInput("L");}()'><b class='Text'>L</b></span>
-					<span id='B_vk_l' class='VirtualKeyboardKey' onclick='~function(){NowInput("l");}()' style='display: none;'><b class='Text'>l</b></span>
-					<span id='B_vk_UL' class='VirtualKeyboardKey' onclick='~function(){NowInput("UL");}()'><b class='Text'>_</b></span> <br>
-					<span id='B_vk_Z' class='VirtualKeyboardKey' onclick='~function(){NowInput("Z");}()'><b class='Text'>Z</b></span>
-					<span id='B_vk_z' class='VirtualKeyboardKey' onclick='~function(){NowInput("z");}()' style='display: none;'><b class='Text'>z</b></span>
-					<span id='B_vk_X' class='VirtualKeyboardKey' onclick='~function(){NowInput("X");}()'><b class='Text'>X</b></span>
-					<span id='B_vk_x' class='VirtualKeyboardKey' onclick='~function(){NowInput("x");}()' style='display: none;'><b class='Text'>x</b></span>
-					<span id='B_vk_C' class='VirtualKeyboardKey' onclick='~function(){NowInput("C");}()'><b class='Text'>C</b></span>
-					<span id='B_vk_c' class='VirtualKeyboardKey' onclick='~function(){NowInput("c");}()' style='display: none;'><b class='Text'>c</b></span>
-					<span id='B_vk_V' class='VirtualKeyboardKey' onclick='~function(){NowInput("V");}()'><b class='Text'>V</b></span>
-					<span id='B_vk_v' class='VirtualKeyboardKey' onclick='~function(){NowInput("v");}()' style='display: none;'><b class='Text'>v</b></span>
-					<span id='B_vk_B' class='VirtualKeyboardKey' onclick='~function(){NowInput("B");}()'><b class='Text'>B</b></span>
-					<span id='B_vk_b' class='VirtualKeyboardKey' onclick='~function(){NowInput("b");}()' style='display: none;'><b class='Text'>b</b></span>
-					<span id='B_vk_N' class='VirtualKeyboardKey' onclick='~function(){NowInput("N");}()'><b class='Text'>N</b></span>
-					<span id='B_vk_n' class='VirtualKeyboardKey' onclick='~function(){NowInput("n");}()' style='display: none;'><b class='Text'>n</b></span>
-					<span id='B_vk_M' class='VirtualKeyboardKey' onclick='~function(){NowInput("M");}()'><b class='Text'>M</b></span>
-					<span id='B_vk_m' class='VirtualKeyboardKey' onclick='~function(){NowInput("m");}()' style='display: none;'><b class='Text'>m</b></span>
-					<span id='B_vk_UD' class='VirtualKeyboardKey' onclick='~function(){NowInput("UD");}()'><b class='Text'>◀</b></span>
-					<span id='B_vk_RD' class='VirtualKeyboardKey' onclick='~function(){NowInput("RD");}()'><b class='Text'>▶</b></span>
-					<span id='B_vk_OK' class='VirtualKeyboardKey' onclick='~function(){NowInput("OK");}()'><b class='Text'>√</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_Q' class='VirtualKeyboardKey' onclick='~function(){NowInput("Q");}()'><b class='Text'>Q</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_q' class='VirtualKeyboardKey' onclick='~function(){NowInput("q");}()' style='display: none;'><b class='Text'>q</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_W' class='VirtualKeyboardKey' onclick='~function(){NowInput("W");}()'><b class='Text'>W</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_w' class='VirtualKeyboardKey' onclick='~function(){NowInput("w");}()' style='display: none;'><b class='Text'>w</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_E' class='VirtualKeyboardKey' onclick='~function(){NowInput("E");}()'><b class='Text'>E</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_e' class='VirtualKeyboardKey' onclick='~function(){NowInput("e");}()' style='display: none;'><b class='Text'>e</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_R' class='VirtualKeyboardKey' onclick='~function(){NowInput("R");}()'><b class='Text'>R</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_r' class='VirtualKeyboardKey' onclick='~function(){NowInput("r");}()' style='display: none;'><b class='Text'>r</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_T' class='VirtualKeyboardKey' onclick='~function(){NowInput("T");}()'><b class='Text'>T</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_t' class='VirtualKeyboardKey' onclick='~function(){NowInput("t");}()' style='display: none;'><b class='Text'>t</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_Y' class='VirtualKeyboardKey' onclick='~function(){NowInput("Y");}()'><b class='Text'>Y</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_y' class='VirtualKeyboardKey' onclick='~function(){NowInput("y");}()' style='display: none;'><b class='Text'>y</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_U' class='VirtualKeyboardKey' onclick='~function(){NowInput("U");}()'><b class='Text'>U</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_u' class='VirtualKeyboardKey' onclick='~function(){NowInput("u");}()' style='display: none;'><b class='Text'>u</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_I' class='VirtualKeyboardKey' onclick='~function(){NowInput("I");}()'><b class='Text'>I</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_i' class='VirtualKeyboardKey' onclick='~function(){NowInput("i");}()' style='display: none;'><b class='Text'>i</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_O' class='VirtualKeyboardKey' onclick='~function(){NowInput("O");}()'><b class='Text'>O</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_o' class='VirtualKeyboardKey' onclick='~function(){NowInput("o");}()' style='display: none;'><b class='Text'>o</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_P' class='VirtualKeyboardKey' onclick='~function(){NowInput("P");}()'><b class='Text'>P</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_p' class='VirtualKeyboardKey' onclick='~function(){NowInput("p");}()' style='display: none;'><b class='Text'>p</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_DL' class='VirtualKeyboardKey' onclick='~function(){NowInput("DL");}()'><b class='Text'>×</b></span> <br>
+					<span id='B_VirtualKeyboardKey_Letters_CL' class='VirtualKeyboardKey' onclick='~function(){NowInput("CL");}()' style='display: none;'><b class='Text'>▲</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_CU' class='VirtualKeyboardKey' onclick='~function(){NowInput("CU");}()'><b class='Text'>▼</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_A' class='VirtualKeyboardKey' onclick='~function(){NowInput("A");}()'><b class='Text'>A</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_a' class='VirtualKeyboardKey' onclick='~function(){NowInput("a");}()' style='display: none;'><b class='Text'>a</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_S' class='VirtualKeyboardKey' onclick='~function(){NowInput("S");}()'><b class='Text'>S</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_s' class='VirtualKeyboardKey' onclick='~function(){NowInput("s");}()' style='display: none;'><b class='Text'>s</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_D' class='VirtualKeyboardKey' onclick='~function(){NowInput("D");}()'><b class='Text'>D</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_d' class='VirtualKeyboardKey' onclick='~function(){NowInput("d");}()' style='display: none;'><b class='Text'>d</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_F' class='VirtualKeyboardKey' onclick='~function(){NowInput("F");}()'><b class='Text'>F</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_f' class='VirtualKeyboardKey' onclick='~function(){NowInput("f");}()' style='display: none;'><b class='Text'>f</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_G' class='VirtualKeyboardKey' onclick='~function(){NowInput("G");}()'><b class='Text'>G</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_g' class='VirtualKeyboardKey' onclick='~function(){NowInput("g");}()' style='display: none;'><b class='Text'>g</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_H' class='VirtualKeyboardKey' onclick='~function(){NowInput("H");}()'><b class='Text'>H</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_h' class='VirtualKeyboardKey' onclick='~function(){NowInput("h");}()' style='display: none;'><b class='Text'>h</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_J' class='VirtualKeyboardKey' onclick='~function(){NowInput("J");}()'><b class='Text'>J</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_j' class='VirtualKeyboardKey' onclick='~function(){NowInput("j");}()' style='display: none;'><b class='Text'>j</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_K' class='VirtualKeyboardKey' onclick='~function(){NowInput("K");}()'><b class='Text'>K</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_k' class='VirtualKeyboardKey' onclick='~function(){NowInput("k");}()' style='display: none;'><b class='Text'>k</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_L' class='VirtualKeyboardKey' onclick='~function(){NowInput("L");}()'><b class='Text'>L</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_l' class='VirtualKeyboardKey' onclick='~function(){NowInput("l");}()' style='display: none;'><b class='Text'>l</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_UL' class='VirtualKeyboardKey' onclick='~function(){NowInput("UL");}()'><b class='Text'>_</b></span> <br>
+					<span id='B_VirtualKeyboardKey_Letters_Z' class='VirtualKeyboardKey' onclick='~function(){NowInput("Z");}()'><b class='Text'>Z</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_z' class='VirtualKeyboardKey' onclick='~function(){NowInput("z");}()' style='display: none;'><b class='Text'>z</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_X' class='VirtualKeyboardKey' onclick='~function(){NowInput("X");}()'><b class='Text'>X</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_x' class='VirtualKeyboardKey' onclick='~function(){NowInput("x");}()' style='display: none;'><b class='Text'>x</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_C' class='VirtualKeyboardKey' onclick='~function(){NowInput("C");}()'><b class='Text'>C</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_c' class='VirtualKeyboardKey' onclick='~function(){NowInput("c");}()' style='display: none;'><b class='Text'>c</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_V' class='VirtualKeyboardKey' onclick='~function(){NowInput("V");}()'><b class='Text'>V</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_v' class='VirtualKeyboardKey' onclick='~function(){NowInput("v");}()' style='display: none;'><b class='Text'>v</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_B' class='VirtualKeyboardKey' onclick='~function(){NowInput("B");}()'><b class='Text'>B</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_b' class='VirtualKeyboardKey' onclick='~function(){NowInput("b");}()' style='display: none;'><b class='Text'>b</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_N' class='VirtualKeyboardKey' onclick='~function(){NowInput("N");}()'><b class='Text'>N</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_n' class='VirtualKeyboardKey' onclick='~function(){NowInput("n");}()' style='display: none;'><b class='Text'>n</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_M' class='VirtualKeyboardKey' onclick='~function(){NowInput("M");}()'><b class='Text'>M</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_m' class='VirtualKeyboardKey' onclick='~function(){NowInput("m");}()' style='display: none;'><b class='Text'>m</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_UD' class='VirtualKeyboardKey' style='display: none;' onclick='~function(){NowInput("UD");}()'><b class='Text'>◀</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_RD' class='VirtualKeyboardKey' style='display: none;' onclick='~function(){NowInput("RD");}()'><b class='Text'>▶</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_OK' class='VirtualKeyboardKey' onclick='~function(){NowInput("OK");}()'><b class='Text'>√</b></span>
+				</div>
+				<div id='M_VirtualKeyboard_Nums' class='VirtualKeyboard' style='display: none;'>
+					<b class='Title'>【VirtualKeyboard】 Nums.</b>
+					<div class='Lines'></div>
+					<span id='B_VirtualKeyboardKey_Letters_1' class='VirtualKeyboardKey' onclick='~function(){NowInput("1");}()'><b class='Text'>1</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_2' class='VirtualKeyboardKey' onclick='~function(){NowInput("2");}()'><b class='Text'>2</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_3' class='VirtualKeyboardKey' onclick='~function(){NowInput("3");}()'><b class='Text'>3</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_4' class='VirtualKeyboardKey' onclick='~function(){NowInput("4");}()'><b class='Text'>4</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_5' class='VirtualKeyboardKey' onclick='~function(){NowInput("5");}()'><b class='Text'>5</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_6' class='VirtualKeyboardKey' onclick='~function(){NowInput("6");}()'><b class='Text'>6</b></span> <br>
+					<span id='B_VirtualKeyboardKey_Letters_7' class='VirtualKeyboardKey' onclick='~function(){NowInput("7");}()'><b class='Text'>7</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_8' class='VirtualKeyboardKey' onclick='~function(){NowInput("8");}()'><b class='Text'>8</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_9' class='VirtualKeyboardKey' onclick='~function(){NowInput("9");}()'><b class='Text'>9</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_0' class='VirtualKeyboardKey' onclick='~function(){NowInput("0");}()'><b class='Text'>0</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_OK' class='VirtualKeyboardKey' onclick='~function(){NowInput("OK");}()'><b class='Text'>√</b></span>
+					<span id='B_VirtualKeyboardKey_Letters_DL' class='VirtualKeyboardKey' onclick='~function(){NowInput("DL");}()'><b class='Text'>×</b></span>
 				</div>
 				<div class='VirtualKeyboardCover'></div>
 			</div>
